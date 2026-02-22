@@ -66,16 +66,18 @@ if ($q !== '') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pinjam Buku</title>
     <link href="/perpustakaan_ukk/bootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/css/ui-bootstrap.css" rel="stylesheet">
+    
 </head>
 <body>
 <?php require_once __DIR__ . '/../partials/siswa_header.php'; ?>
-<div class="container">
+<div class="container-fluid px-0">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <div class="text-muted">Transaksi</div>
             <h3 class="mb-0 fw-semibold">Pinjam Buku</h3>
         </div>
-        <span class="badge">Anggota</span>
+        <span class="badge text-bg-primary">Anggota</span>
     </div>
     <?php if ($message): ?>
         <div class="alert alert-success"><?php echo htmlspecialchars($message); ?></div>
@@ -92,7 +94,7 @@ if ($q !== '') {
         </div>
     </form>
 
-    <table class="table">
+    <div class="card ui-card"><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover align-middle">
         <thead>
             <tr>
                 <th>Judul</th>
@@ -113,7 +115,7 @@ if ($q !== '') {
                     <td><?php echo htmlspecialchars($row['penerbit']); ?></td>
                     <td><?php echo (int)$row['stok']; ?></td>
                     <td>
-                        <form method="post" style="display:inline;">
+                        <form method="post" class="d-inline">
                             <input type="hidden" name="id_buku" value="<?php echo (int)$row['id_buku']; ?>">
                             <button class="btn btn-success btn-sm" type="submit" <?php echo (int)$row['stok'] <= 0 ? 'disabled' : ''; ?>>
                                 Pinjam
@@ -124,7 +126,7 @@ if ($q !== '') {
             <?php endforeach; ?>
         <?php endif; ?>
         </tbody>
-    </table>
+    </table></div></div></div>
 </div>
 </main>
 </div>
@@ -132,5 +134,9 @@ if ($q !== '') {
 <script src="/perpustakaan_ukk/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
 
 

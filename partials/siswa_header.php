@@ -2,7 +2,9 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+
 require_once __DIR__ . '/../config/db.php';
+
 $display_name = 'Anggota';
 if (isset($_SESSION['id_anggota'])) {
     $id = (int)$_SESSION['id_anggota'];
@@ -15,24 +17,36 @@ if (isset($_SESSION['id_anggota'])) {
     }
     $stmt->close();
 }
+
+$current = basename($_SERVER['PHP_SELF'] ?? '');
+$nav = [
+    ['label' => 'Dashboard', 'href' => '/perpustakaan_ukk/siswa/index.php', 'match' => ['index.php']],
+    ['label' => 'Pinjam', 'href' => '/perpustakaan_ukk/siswa/pinjam.php', 'match' => ['pinjam.php']],
+    ['label' => 'Kembali', 'href' => '/perpustakaan_ukk/siswa/kembali.php', 'match' => ['kembali.php']],
+    ['label' => 'Riwayat', 'href' => '/perpustakaan_ukk/siswa/riwayat.php', 'match' => ['riwayat.php']],
+];
 ?>
-<div class="container-fluid">
-    <div class="row min-vh-100">
-        <aside class="col-lg-2 col-md-3 bg-light border-end p-3">
-            <div class="fw-bold mb-3">Perpustakaan UKK</div>
+<div class="container-fluid px-0 app-shell">
+    <div class="row g-0 min-vh-100">
+        <aside class="col-lg-2 col-md-3 p-3 app-sidebar">
+            <div class="app-brand mb-3">Perpustakaan UKK</div>
             <nav class="nav flex-column gap-1">
-                <a class="nav-link px-0" href="/perpustakaan_ukk/siswa/index.php">Dashboard</a>
-                <a class="nav-link px-0" href="/perpustakaan_ukk/siswa/pinjam.php">Pinjam</a>
-                <a class="nav-link px-0" href="/perpustakaan_ukk/siswa/kembali.php">Kembali</a>
-                <a class="nav-link px-0" href="/perpustakaan_ukk/siswa/riwayat.php">Riwayat</a>
-                <a class="nav-link px-0 text-danger" href="/perpustakaan_ukk/auth/logout.php">Logout</a>
+                <?php foreach ($nav as $item): ?>
+                    <?php $active = in_array($current, $item['match'], true) ? ' active' : ''; ?>
+                    <a class="nav-link app-nav-link<?php echo $active; ?>" href="<?php echo $item['href']; ?>">
+                        <?php echo $item['label']; ?>
+                    </a>
+                <?php endforeach; ?>
             </nav>
         </aside>
-        <main class="col-lg-10 col-md-9 p-4">
-            <div class="d-flex justify-content-between align-items-center mb-4">
+        <main class="col-lg-10 col-md-9 app-main">
+            <div class="app-topbar d-flex justify-content-between align-items-center">
                 <div>
                     <div class="fw-semibold">Sistem Perpustakaan</div>
                     <div class="text-muted small">Dashboard Anggota</div>
                 </div>
-                <span class="badge text-bg-light border text-dark"><?php echo htmlspecialchars($display_name); ?></span>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge text-bg-light border text-dark"><?php echo htmlspecialchars($display_name); ?></span>
+                    <a class="btn btn-sm btn-outline-secondary" href="/perpustakaan_ukk/auth/logout.php">Logout</a>
+                </div>
             </div>

@@ -28,18 +28,20 @@ if ($id_anggota > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Riwayat Peminjaman</title>
     <link href="/perpustakaan_ukk/bootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/css/ui-bootstrap.css" rel="stylesheet">
+    
 </head>
 <body>
 <?php require_once __DIR__ . '/../partials/siswa_header.php'; ?>
-<div class="container">
+<div class="container-fluid px-0">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <div class="text-muted">Riwayat</div>
             <h3 class="mb-0 fw-semibold">Riwayat Peminjaman</h3>
         </div>
-        <span class="badge">Anggota</span>
+        <span class="badge text-bg-primary">Anggota</span>
     </div>
-    <table class="table">
+    <div class="card ui-card"><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover align-middle">
         <thead>
             <tr>
                 <th>Judul</th>
@@ -64,7 +66,7 @@ if ($id_anggota > 0) {
             <?php endforeach; ?>
         <?php endif; ?>
         </tbody>
-    </table>
+    </table></div></div></div>
 </div>
 </main>
 </div>
@@ -72,5 +74,8 @@ if ($id_anggota > 0) {
 <script src="/perpustakaan_ukk/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
 
 

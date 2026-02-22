@@ -58,11 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Form Anggota</title>
     <link href="/perpustakaan_ukk/bootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/css/ui-bootstrap.css" rel="stylesheet">
+    
 </head>
 <body>
 <!-- HTML START -->
 <?php require_once __DIR__ . '/../partials/admin_header.php'; ?>
-<div class="container">
+<div class="container-fluid px-0">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <div class="text-muted">Master Data</div>
@@ -73,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if ($error): ?>
         <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>
-    <div class="card">
+    <div class="card ui-card">
         <div class="card-body">
             <form method="post">
                 <div class="row">
@@ -121,5 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- HTML END -->
 </body>
 </html>
+
+
 
 

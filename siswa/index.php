@@ -23,52 +23,63 @@ if ($id_anggota > 0) {
 ?>
 <!doctype html>
 <html lang="id">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Anggota</title>
-    <link href="/perpustakaan_ukk/bootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/bootstrap/css/bbootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/css/ui-bootstrap.css" rel="stylesheet">
+
 </head>
+
 <body>
-<?php require_once __DIR__ . '/../partials/siswa_header.php'; ?>
-<div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <div>
-            <div class="text-muted">Dashboard</div>
-            <h3 class="mb-0 fw-semibold">Buku yang Sedang Dipinjam</h3>
+    <?php require_once __DIR__ . '/../partials/siswa_header.php'; ?>
+    <div class="container-fluid px-0">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <div class="text-muted">Dashboard</div>
+                <h3 class="mb-0 fw-semibold">Buku yang Sedang Dipinjam</h3>
+            </div>
+            <span class="badge text-bg-primary">Anggota</span>
         </div>
-        <span class="badge">Anggota</span>
+        <div class="card ui-card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Judul</th>
+                                <th>Tgl Pinjam</th>
+                                <th>Jatuh Tempo</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if (count($rows) === 0): ?>
+                            <tr>
+                                <td colspan="4">Belum ada buku dipinjam.</td>
+                            </tr>
+                            <?php else: ?>
+                            <?php foreach ($rows as $row): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['judul']); ?></td>
+                                <td><?php echo htmlspecialchars($row['tgl_pinjam']); ?></td>
+                                <td><?php echo htmlspecialchars($row['tgl_jatuh_tempo']); ?></td>
+                                <td><?php echo htmlspecialchars($row['status']); ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Judul</th>
-                <th>Tgl Pinjam</th>
-                <th>Jatuh Tempo</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php if (count($rows) === 0): ?>
-            <tr><td colspan="4">Belum ada buku dipinjam.</td></tr>
-        <?php else: ?>
-            <?php foreach ($rows as $row): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($row['judul']); ?></td>
-                    <td><?php echo htmlspecialchars($row['tgl_pinjam']); ?></td>
-                    <td><?php echo htmlspecialchars($row['tgl_jatuh_tempo']); ?></td>
-                    <td><?php echo htmlspecialchars($row['status']); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        </tbody>
-    </table>
-</div>
-</main>
-</div>
-</div>
-<script src="/perpustakaan_ukk/bootstrap.min.js"></script>
+    </main>
+    </div>
+    </div>
+    <script src="/perpustakaan_ukk/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
-
-

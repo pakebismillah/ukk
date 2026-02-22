@@ -41,10 +41,12 @@ if ($q !== '') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Transaksi</title>
     <link href="/perpustakaan_ukk/bootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/css/ui-bootstrap.css" rel="stylesheet">
+    
 </head>
 <body>
 <?php require_once __DIR__ . '/../partials/admin_header.php'; ?>
-<div class="container">
+<div class="container-fluid px-0">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <div class="text-muted">Transaksi</div>
@@ -63,7 +65,7 @@ if ($q !== '') {
         </div>
     </form>
 
-    <table class="table">
+    <div class="card ui-card"><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover align-middle">
         <thead>
             <tr>
                 <th>Anggota</th>
@@ -94,7 +96,7 @@ if ($q !== '') {
             <?php endforeach; ?>
         <?php endif; ?>
         </tbody>
-    </table>
+    </table></div></div></div>
 </div>
 </main>
 </div>
@@ -102,5 +104,7 @@ if ($q !== '') {
 <script src="/perpustakaan_ukk/bootstrap.min.js"></script>
 </body>
 </html>
+
+
 
 

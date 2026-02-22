@@ -65,22 +65,24 @@ if ($id_anggota > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pengembalian Buku</title>
     <link href="/perpustakaan_ukk/bootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/css/ui-bootstrap.css" rel="stylesheet">
+    
 </head>
 <body>
 <?php require_once __DIR__ . '/../partials/siswa_header.php'; ?>
-<div class="container">
+<div class="container-fluid px-0">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <div class="text-muted">Transaksi</div>
             <h3 class="mb-0 fw-semibold">Pengembalian Buku</h3>
         </div>
-        <span class="badge">Anggota</span>
+        <span class="badge text-bg-primary">Anggota</span>
     </div>
     <?php if ($message): ?>
         <div class="alert alert-success"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
 
-    <table class="table">
+    <div class="card ui-card"><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover align-middle">
         <thead>
             <tr>
                 <th>Judul</th>
@@ -99,7 +101,7 @@ if ($id_anggota > 0) {
                     <td><?php echo htmlspecialchars($row['tgl_pinjam']); ?></td>
                     <td><?php echo htmlspecialchars($row['tgl_jatuh_tempo']); ?></td>
                     <td>
-                        <form method="post" style="display:inline;">
+                        <form method="post" class="d-inline">
                             <input type="hidden" name="id_pinjam" value="<?php echo (int)$row['id_pinjam']; ?>">
                             <button class="btn btn-warning btn-sm" type="submit">Kembalikan</button>
                         </form>
@@ -108,7 +110,7 @@ if ($id_anggota > 0) {
             <?php endforeach; ?>
         <?php endif; ?>
         </tbody>
-    </table>
+    </table></div></div></div>
 </div>
 </main>
 </div>
@@ -116,5 +118,9 @@ if ($id_anggota > 0) {
 <script src="/perpustakaan_ukk/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
 
 

@@ -28,10 +28,12 @@ if ($id > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Detail Transaksi</title>
     <link href="/perpustakaan_ukk/bootstrap.min.css" rel="stylesheet">
+    <link href="/perpustakaan_ukk/assets/css/ui-bootstrap.css" rel="stylesheet">
+    
 </head>
 <body>
 <?php require_once __DIR__ . '/../partials/admin_header.php'; ?>
-<div class="container">
+<div class="container-fluid px-0">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <div class="text-muted">Transaksi</div>
@@ -42,7 +44,7 @@ if ($id > 0) {
     <?php if (!$row): ?>
         <div class="alert alert-danger">Data tidak ditemukan.</div>
     <?php else: ?>
-        <table class="table">
+        <div class="card ui-card"><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover align-middle">
             <tr><th>Nama</th><td><?php echo htmlspecialchars($row['nama']); ?></td></tr>
             <tr><th>NIS</th><td><?php echo htmlspecialchars($row['nis']); ?></td></tr>
             <tr><th>Judul Buku</th><td><?php echo htmlspecialchars($row['judul']); ?></td></tr>
@@ -50,7 +52,7 @@ if ($id > 0) {
             <tr><th>Jatuh Tempo</th><td><?php echo htmlspecialchars($row['tgl_jatuh_tempo']); ?></td></tr>
             <tr><th>Tgl Kembali</th><td><?php echo htmlspecialchars($row['tgl_kembali'] ?? '-'); ?></td></tr>
             <tr><th>Status</th><td><?php echo htmlspecialchars($row['status']); ?></td></tr>
-        </table>
+        </table></div></div></div>
     <?php endif; ?>
 </div>
 </main>
@@ -59,5 +61,7 @@ if ($id > 0) {
 <script src="/perpustakaan_ukk/bootstrap.min.js"></script>
 </body>
 </html>
+
+
 
 

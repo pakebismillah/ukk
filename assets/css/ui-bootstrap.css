@@ -1,0 +1,136 @@
+:root {
+    --app-bg: #f7f4f0;
+    --app-surface: #fdfcfb;
+    --app-border: #e8e2db;
+    --app-text: #2c2c2c;
+    --app-muted: #8a8078;
+    --app-accent: #c0724a;
+    --app-accent-dark: #a65f3c;
+    --app-sidebar: #2c2c2c;
+}
+
+body {
+    background: var(--app-bg);
+    color: var(--app-text);
+}
+
+.app-shell {
+    min-height: 100vh;
+}
+
+.app-sidebar {
+    background: linear-gradient(180deg, #2c2c2c 0%, #3a332e 100%);
+    color: #fdfcfb;
+}
+
+.app-sidebar .app-brand {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.app-nav-link {
+    color: #f7f4f0;
+    border-radius: 0.65rem;
+    padding: 0.55rem 0.75rem;
+    transition: 0.2s ease;
+}
+
+.app-nav-link:hover,
+.app-nav-link:focus {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.app-nav-link.active {
+    background: var(--app-accent);
+    color: #fff;
+}
+
+.app-main {
+    padding: 1.5rem;
+}
+
+.app-topbar {
+    background: var(--app-surface);
+    border: 1px solid var(--app-border);
+    border-radius: 0.9rem;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.page-head {
+    margin-bottom: 1rem;
+}
+
+.page-head .page-subtitle {
+    color: var(--app-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.15rem;
+}
+
+.page-head .page-title {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.ui-card,
+.card {
+    border-color: var(--app-border);
+    border-radius: 0.9rem;
+    box-shadow: 0 8px 24px rgba(44, 44, 44, 0.06);
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #f2ede7;
+    color: #3a332e;
+    border-bottom-color: var(--app-border);
+    white-space: nowrap;
+}
+
+.table td,
+.table th {
+    border-color: var(--app-border);
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background: #fcf8f3;
+}
+
+.btn-primary {
+    background: var(--app-accent);
+    border-color: var(--app-accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: var(--app-accent-dark);
+    border-color: var(--app-accent-dark);
+}
+
+.form-control,
+.form-select {
+    border-color: var(--app-border);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--app-accent);
+    box-shadow: 0 0 0 0.2rem rgba(192, 114, 74, 0.2);
+}
+
+.auth-hero-panel {
+    background: linear-gradient(135deg, #2c2c2c 0%, #3a332e 100%);
+}
+
+@media (max-width: 991.98px) {
+    .app-main {
+        padding: 1rem;
+    }
+}
